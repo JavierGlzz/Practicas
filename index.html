@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda</title>
+  <link rel="stylesheet" href="/estilos.css" type="text/css">
+</head>
+<body>
+  <!--Animacion-->
+  <div class="cargando" id="cargar">
+    <div class="carga"></div>
+  </div>
+  <!--finAnimacion-->
+  
+  <header id="cabecera">
+    <h2>TIENDA COVID19</h2>
+  </header>
+
+  <nav id="indice">
+    <ul class="nav">
+      <li>
+        <a style="color: black;">PRODUCTOS</a>
+      </li>
+      <li>
+        <a style="color:black">CARRO</a>
+      </li>
+    </ul>
+    <br>
+    <br>
+    <section>
+      <div id="idCarro">
+        <ul id="pintarProductos">
+          <li id="listaProductos"></li>
+        </ul>
+      </div>
+    </section>
+  <section id="filtros">
+      <h4>Filtros</h4>
+      <label class="mdl" for="checkbox-1" onchange="filtarDatosMujer(this.value)">
+        <input type="checkbox" id="checkbox1">
+        <span class="mdl-checkbox__label">Mujer</span>
+      </label>
+      <label class="mdl" for="checkbox-2" onchange="filtarDatosHombre(this.value)">
+        <input type="checkbox" id="checkbox2">
+        <span class="mdl-checkbox__label">Hombre</span>
+      </label>
+      <label class="mdl" for="checkbox-3" onchange="filtarDatosJoven(this.value)">
+        <input type="checkbox" id="checkbox3">
+        <span class="mdl-checkbox__label">Joven</span>
+      </label>
+      <label class="mdl" for="checkbox-3" onchange="mostrarProducto(this.value)">
+        <input type="checkbox" id="checkbox4">
+        <span class="mdl-checkbox__label">Todos</span>
+      </label>
+    </section>
+  </nav>
+<section>
+  <div id="mostrarProductos"></div>
+</section>
+<script type="text/javascript" src="/script.js"></script>
+</body>
+</html>
