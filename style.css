@@ -1,56 +1,35 @@
-.navegacion{
-    border: 2px solid green;
-    display: flex;
-    flex-flow: row;
-    height: 50px;
-    align-items: center;
-    justify-content: space-between;
-}
-#i1{
-    order: 1;
-    align-self: center;
-}
-#i2{
-    order: 2;
-    align-self: flex-end;
-}
-#i3{
-    order: 3;
-}
-#i4{
-    order: 4;
+.main{
+    display: grid;
+    height: 500px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: tomato;
+    grid-template-areas: "izquierda navegador navegador navegador derecha"
+                         "izquierda principal principal principal derecha"
+                         "izquierda principal principal principal derecha"
+                         "footer footer footer footer derecha";
 }
 
-#imagen{
-background-color: black;
-
+.navegador{
+    grid-area: navegador;
+    background-color: blue;
 }
 
-#imagen2{
-    border: 1px solid lightgreen;
-    padding: 10px;
-    align-self: flex-end;
+.aside-left{
+    grid-area: izquierda;
+    background-color: black;
 }
 
-.articulo{
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.principal{
+    grid-area: principal;
+    background-color: white;
 }
-.DESCRIPTION{
-    border: 2px solid rebeccapurple;
-    display: flex;
-    flex-direction: column;
-}
-.MAIN{
-    border: 2px solid red;
-    display: flex;
-    flex-direction: column;
+.aside-rigth{
+    grid-area: derecha;
+    background-color: yellow;
 }
 
-.RELATED{
-    border: 2px solid springgreen;
-    display: flex;
-    flex-direction: column;
+.footer{
+    grid-area: footer;
+    background-color: turquoise;
 }
