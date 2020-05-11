@@ -1,0 +1,56 @@
+.principal {
+  border: 2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aquamarine;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.principal > button {
+  background-color: red;
+  margin-top: 25px;
+  width: 50px;
+  height: 50px;
+
+}
+.contenedor > button {
+  border: 2px solid green;
+  background-color: #3383ce;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 20px;
+  
+}
+
+.contenedorJuego > p {
+  border: 2px solid blueviolet;
+  background-color: #ff8484;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 20px;
+}
+
+.contenedor > p {
+  border: 2px solid chartreuse;
+  background-color: #ff8484;
+  width: 300px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 20px;
+}
+
+.ClaseCV > p  {
+  background-color: #ff8484;
+  width: 300px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 20px;
+}
