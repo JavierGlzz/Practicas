@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="ajaxButton" type="button">Hacer Peticion</button>
+
+<script>
+
+  var httpRequest;
+  document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+  var impresionDiv = document.createElement("div");
+  document.body.appendChild(impresionDiv);
+
+  function makeRequest (){
+    fetch('https://demo6292426.mockable.io/ramMemory')
+    .then(response => response.json())
+    .then(datosJson => { datosJson.map(datos => {
+      const traerDatos = document.createTextNode(datos.name.first + ' ' + datos.age)
+      const datosParrafo = document.createElement('p')
+      datosParrafo.appendChild(traerDatos)
+      impresionDiv.appendChild(datosParrafo)
+
+    })
+    
+    const personasMenores = datosJson.reduce((contenedor, dato) => {
+      if(dato.age < 30) {
+        contenedor.personas += 1
+      }
+    return contenedor
+    }, { personas: 0 })
+    console.log(personasMenores)
+
+    const traerMenores = document.createTextNode("Personas menores de 30 años:" + Object.values(personasMenores))
+      const menoresParrafo = document.createElement('p')
+      menoresParrafo.appendChild(traerMenores)
+      impresionDiv.appendChild(menoresParrafo)
+    
+    const personasMayores = datosJson.reduce((contenedor, dato) => {
+      if(dato.age > 30) {
+        contenedor.personas += 1
+      }
+    return contenedor
+    }, { personas: 0 })
+    console.log(personasMayores)
+
+    const personasOjos = datosJson.reduce((contenedor, dato) => {
+      if(dato.balance > "$1,000") {
+        contenedor.personas += 1
+      }
+    return contenedor
+    }, { personas: 0 })
+    console.log(personasOjos)
+  })
+    .catch(error => console.log('ourrio un error', error))
+  };
+  
+  
+
+</script>
+</body>
+</html>
