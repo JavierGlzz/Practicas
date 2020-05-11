@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+  <link rel="stylesheet" href="/estilo.css" type="text/css">
+</head>
+<body>
+<!--Aqui va el header-->
+<header class="principal">
+  <h1>COMPONENTES</h1>
+</header>
+<!--Aqui se cierra-->
+<nav class="botones">
+  <button id="ajaxRAM" type="button">RAM</button>
+  <button id="ajaxPROCESADORES" type="button">PROCESADORES</button>
+  <button id="ajaxHDD" type="button">HDD</button>
+  <button id="borrar" type="button">Borrar</button>
+</nav>
+
+<!--Aqui va el DIV con los select-->
+  <div class="contenedorselect" > 
+    <select name="seleccion" id="ram" class="selectcss">
+      <optgroup label="Memoria, Marca, Precio"></optgroup>
+    </select>
+    <input type="submit" value="Enviar" id="enviarRam">
+    <select name="seleccion" id="procesador" class="selectcss">
+      <optgroup label="Arquitectura, Cores, Precio"></optgroup>
+    </select>
+    <input type="submit" value="Enviar" id="enviarPro">
+    <select name="seleccion" id="hdd" class="selectcss">
+      <optgroup label="Tamaño, Marca, Velocidad"></optgroup>
+    </select>
+    <input type="submit" value="Enviar" id="enviarHDD">
+  </div>
+<!--Aqui se cierran los select-->
+  <script>
+  document.getElementById("ajaxRAM").addEventListener('click', makeRequestRam)
+  document.getElementById("ajaxPROCESADORES").addEventListener('click', makeRequestProcesadores)
+  document.getElementById("ajaxHDD").addEventListener('click', makeRequestHDD)
+  var impresionDiv = document.createElement('div')
+  impresionDiv.className = 'impresionSelect'
+  document.body.appendChild(impresionDiv)
+
+//Aqui vamos a probar async 
+async function makeRequestRam(){
+  let response = await fetch('https://demo6292426.mockable.io/ramMemory')
+  let dataRam = await response.json()
+  tablaRam(dataRam)
+} 
+//Aqui solicitamos la RAM y la pintamos   
+  function tablaRam(dataRam) {
+  Object.values(dataRam.data).forEach(
+  key => {
+    ram.innerHTML +=`
+        <select>
+          <option>${key.ramMemory}, ${key.architecture}, ${key.price}</option>
+        </select>`
+  })
+}
+  document.getElementById("enviarRam").addEventListener('click', () => {
+  
+  let traerBody = document.querySelector('body')
+  let traerSelect = document.getElementById('ram')
+  let crearParrafo = document.createElement('p')
+  
+
+  let traerSelectValores = traerSelect.options[traerSelect.selectedIndex].value
+  console.log(traerSelectValores)
+  let parrafo = document.createTextNode('Ram:' + ' ' + traerSelectValores)
+  
+  impresionDiv.appendChild(crearParrafo)
+  crearParrafo.appendChild(parrafo)
+  
+  })
+//Fin RAM
+
+//Procesadores
+  function makeRequestProcesadores (){
+  fetch('http://demo6292426.mockable.io/processors')
+  .then(response => response.json())
+  .then(dataProcesador => {
+    tablaProcesador(dataProcesador)
+    console.log(dataProcesador)
+  })
+  }
+  function tablaProcesador(dataProcesador) {
+  Object.values(dataProcesador.data).forEach(
+  key => {
+    procesador.innerHTML +=`
+        <select>
+          <option>${key.architecture}, ${key.cores}, ${key.price}</option>
+        </select>`
+  })
+}
+document.getElementById("enviarPro").addEventListener('click', () => {
+  
+  let traerBody = document.querySelector('body')
+  let traerSelect = document.getElementById('procesador')
+  let crearParrafo = document.createElement('p')
+  
+
+  let traerSelectValores = traerSelect.options[traerSelect.selectedIndex].value
+  console.log(traerSelectValores)
+  let parrafo = document.createTextNode('Procesador:' + ' ' + traerSelectValores)
+  
+  impresionDiv.appendChild(crearParrafo)
+  crearParrafo.appendChild(parrafo)
+  
+  })
+//Fin procesadores
+
+//HDD
+  function makeRequestHDD (){
+  fetch('http://demo6292426.mockable.io/hddList')
+  .then(response => response.json())
+  .then(data => {
+    tabla(data)
+    console.log(data)
+  })
+}
+  function tabla(data) {
+  Object.values(data.data).forEach(
+  key => {
+    hdd.innerHTML +=`
+        <select>
+          <option>${key.size}, ${key.provider}, ${key.speed}</option>
+        </select>
+        `
+  })
+}
+document.getElementById("enviarHDD").addEventListener('click', () => {
+  
+  let traerBody = document.querySelector('body')
+  let traerSelect = document.getElementById('hdd')
+  let crearParrafo = document.createElement('p')
+  let crearDiv = document.createElement('div')
+
+  let traerSelectValores = traerSelect.options[traerSelect.selectedIndex].value
+  console.log(traerSelectValores)
+  let parrafo = document.createTextNode('HDD:' + ' ' + traerSelectValores)
+  
+  impresionDiv.appendChild(crearParrafo)
+  crearParrafo.appendChild(parrafo)
+  })
+</script>
+</body>
+</html>
