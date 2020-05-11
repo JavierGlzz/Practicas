@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="css/estiloRojo.css" type="text/css">
+    <style>
+        @font-face{
+            font-family: jvier;
+            src: url();
+        }
+        :root{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: ;
+        }
+        
+        h1{
+            background-color: #000000;
+        }
+        .miPrimeraClase{
+            color: rgb(186, 186, 236);
+        }
+        .miSegundaClase{
+            font-weight: 100;
+        }
+        .miPrimeraClase.miSegundaClase{
+            background-color: pink;
+        }
+        #primerId{
+            border-color: black ;
+            border-style: dotted;
+            border-width: 4pt solid green;
+        }
+        p.lightFont{
+        background-color: #dddddd;
+        }
+
+        div > h1{
+            background-color: #4762b3;
+        }
+        h1 + h2
+        {
+            background-color: hsl(150, 73%, 61%);
+        }
+
+        h2 ~ h1{
+            background-color: rgb(156, 224, 88);
+        }
+        div.firstClass{
+            height: 1000;
+            background: url(perro1.webp);
+            height: 1000px;
+            border: 3px solid blue;
+        }
+        div.secondaryClass{
+            opacity: 0.5;
+            background-color: #ffffff;
+            margin: 5%;
+            padding: 5%;
+            border: 3px solid red;
+        }
+        div.secondaryClass p{
+            margin: 5%;
+            font-weight: bold;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="background-color: purple;">Hola Mundo</h1>
+    <h1 class="miPrimeraClase miSegundaClase">Hola</h1>
+    <h1 id="primerId">ONLINE</h1>
+    <p class="lightFont">Curso CSS</p>
+    <div>
+        <h1>BLUE</h1>
+        <h2>BLACK</h2>
+        <h1>ROYAL</h1>
+    </div>
+
+    <div>
+        <h1>BLUE</h1>
+        <h2>Subtitle</h2>
+    </div>
+    <div class="firstClass">
+        <div class="secondaryClass">
+            <p>CSS</p>
+        </div>
+    </div>
+</body>
+</html>
